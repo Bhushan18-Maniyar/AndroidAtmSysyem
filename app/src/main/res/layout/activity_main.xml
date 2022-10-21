@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
+    <data class="MainActivityBinding">
 
         <import type="android.view.View" />
 
@@ -44,6 +44,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:text="@={vm.edtAmount}"
                 app:layout_constraintEnd_toEndOf="@id/end_guide"
                 app:layout_constraintStart_toStartOf="@id/start_guide"
                 app:layout_constraintTop_toBottomOf="@id/tv_balance" />
@@ -77,6 +78,7 @@
                 app:layout_constraintEnd_toEndOf="@id/end_guide"
                 android:layout_marginTop="10dp"
                 android:layout_width="0dp"
+                android:text="@{vm.countOfNotes}"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/btn_withdraw"/>
 
