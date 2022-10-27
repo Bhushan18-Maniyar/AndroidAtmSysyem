@@ -45,27 +45,29 @@ class MainViewModel : ViewModel() {
 
     fun withDrawAmount() {
         if (validateInput()) {
-            val amountToBeWithdraw = edtAmount.value!!.toLong()
+            var amountToBeWithdraw = edtAmount.value!!.toLong()
+
+            _availableBalance.value = _availableBalance.value!! - amountToBeWithdraw
+
             val note_2000 = amountToBeWithdraw / 2000
-            _availableBalance.value = _availableBalance.value!! - note_2000
+            amountToBeWithdraw -= note_2000 * 2000
 
             val note_500 = amountToBeWithdraw / 500
-            _availableBalance.value = _availableBalance.value!! - note_500
+            amountToBeWithdraw -= note_500 * 500
 
             val note_200 = amountToBeWithdraw / 200
-            _availableBalance.value = _availableBalance.value!! - note_200
+            amountToBeWithdraw -= note_200 * 200
 
             val note_100 = amountToBeWithdraw / 100
-            _availableBalance.value = _availableBalance.value!! - note_100
+            amountToBeWithdraw -= note_100 * 100
 
             val note_50 = amountToBeWithdraw / 50
-            _availableBalance.value = _availableBalance.value!! - note_50
+            amountToBeWithdraw -= note_50 * 50
 
             val note_20 = amountToBeWithdraw / 20
-            _availableBalance.value = _availableBalance.value!! - note_20
 
             _countOfNotes.postValue(
-                "2000: $note_2000 notes" +
+                " 2000: $note_2000 notes" +
                         "\n 500: $note_500 notes" +
                         "\n 200: $note_200 notes" +
                         "\n 100: $note_100 notes" +
